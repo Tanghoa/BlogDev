@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="test" th:action="@{/test}" th:object="${type}" method="post" class="ui form">
+    <input type="hidden" name="id" value="1">
+    <div>
+        <div>
+            <label>名称</label>
+            <input type="text" name="name" class="txtname" th:value="*{name}" placeholder="名称">
+        </div>
+    </div>
+    <div>
+
+           <div  th:if="${#fields.hasErrors('name')}"  >
+             <p th:errors="*{name}">提交信息不符合规则</p>
+           </div>
+
+
+    </div>
+    <div class="txt"></div>
+    <div>
+        <button type="button" onclick="window.history.go(-1)" >返回</button>
+        <button  class="btn">提交</button>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script>
+
+    // $(".btn").click(function () {
+    //     var val = $(".txtname").val();
+    //     alert(val);
+    //
+    //     if(val === ""){
+    //         $(".txt").text("提交信息不符合规则");
+    //         return false;
+    //     }
+
+        // $(".btn").submit();
+    });
+
+
+</script>
+</body>
+</html>
